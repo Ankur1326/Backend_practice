@@ -1,0 +1,35 @@
+api.openweathermap.org/data/2.5/weather?q=pune&appid=dbda7364818f0361ba48779050d5569b
+
+[
+  {
+    coord: { lon: 73.8553, lat: 18.5196 },       
+    weather: [ [Object] ],
+    base: 'stations',
+    main: {
+      temp: 298.79,
+      feels_like: 299.26,
+      temp_min: 298.79,
+      temp_max: 298.79,
+      pressure: 1007,
+      humidity: 71,
+      sea_level: 1007,
+      grnd_level: 945
+    },
+    visibility: 8122,
+    wind: { speed: 4.49, deg: 263, gust: 11.29 },
+    rain: { '1h': 2.3 },
+    clouds: { all: 100 },
+    dt: 1689995342,
+    sys: {
+      type: 2,
+      id: 2083365,
+      country: 'IN',
+      sunrise: 1689986308,
+      sunset: 1690033391
+    },
+    timezone: 19800,
+    id: 1259229,
+    name: 'Pune',
+    cod: 200
+  }
+]
