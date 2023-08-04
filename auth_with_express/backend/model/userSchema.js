@@ -28,5 +28,15 @@ const userSchema = new Schema({
     timestamps: true
 })
 
+userSchema.method = {
+    jwtToken() {
+        return this.jwtToken.sign(
+            {id: this._id, email: this.email},
+            process.env.SECRET,
+            { expiresIN: '24h' }
+        )
+    }
+}
+
 const userModel = mongoose.model('user', userSchema);
 module.exports = userModel;
