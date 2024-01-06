@@ -9,9 +9,9 @@ const signup = async (req, res, next) => {
             success: false,
             message: "Every fild is required"
         })
-    }    
+    }
 
-    const validEmail = emailValidator.validate(email) 
+    const validEmail = emailValidator.validate(email)
     if (!validEmail) {
         return res.status(400).json({
             success: false,
@@ -48,11 +48,12 @@ const signin = async (req, res) => {
         })
     }
 
-    const user = await userModel
-        .findOne({
-            email
-        })
-        .select('+password');
+    try {
+        const user = await userModel
+            .findOne({
+                email
+            })
+            .select('+password');
 
         if (!user || user.password !== password) {
             return res.status(400).json({
@@ -74,9 +75,16 @@ const signin = async (req, res) => {
             success: true,
             data: user
         })
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            message: e.message
+        })
+    }
 
 }
 
 module.exports = {
-    signup
+    signup,
+    signin
 }
